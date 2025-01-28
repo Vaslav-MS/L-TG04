@@ -2,17 +2,32 @@ from aiogram.types import ReplyKeyboardMarkup, KeyboardButton, InlineKeyboardMar
 from aiogram.utils.keyboard import ReplyKeyboardBuilder, InlineKeyboardBuilder
 
 main = ReplyKeyboardMarkup(keyboard=[
-    [KeyboardButton(text="Тестовая кнопка 1")],
-    [KeyboardButton(text="Тестовая кнопка 2"), KeyboardButton(text="Тестовая кнопка 3")]
-], resize_keyboard=True)
+        [KeyboardButton(text="Привет"), KeyboardButton(text="Пока")]],
+    resize_keyboard=True)
 
-inline_keyboard_test = InlineKeyboardMarkup(inline_keyboard=[
-    [InlineKeyboardButton(text='Каталог', callback_data='catalog')],
-    [InlineKeyboardButton(text='Новости', callback_data='news')],
-    [InlineKeyboardButton(text='Профиль', callback_data='person')]
+inline_links = InlineKeyboardMarkup(inline_keyboard=[
+    [
+        InlineKeyboardButton(text="Новости", url="https://news.google.com/"),
+        InlineKeyboardButton(text="Музыка", url="https://music.youtube.com/")
+    ],
+    [
+        InlineKeyboardButton(text="Видео", url="https://youtube.com/")
+    ]
 ])
 
-test = ["кнопка 1", "кнопка 2", "кнопка 3", "кнопка 4"]
+dynamic = InlineKeyboardMarkup(inline_keyboard=[
+    [
+        InlineKeyboardButton(text='Показать больше', callback_data='show_more')
+    ]
+])
+
+new_kb = InlineKeyboardMarkup(inline_keyboard=[
+    [
+        InlineKeyboardButton(text="Опция 1", callback_data="option_1"),
+        InlineKeyboardButton(text="Опция 2", callback_data="option_2")
+    ]
+])
+
 
 async def test_keyboard():
     keyboard = InlineKeyboardBuilder()
